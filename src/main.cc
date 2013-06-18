@@ -2,39 +2,33 @@
 // Use, modification and distribution is subject to the MIT License (MIT)
 // (See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT)
 
-#include <cstdlib>
 #include <iostream>
 #include "XsqFile.hh"
 
-using namespace std;
-using namespace Xsq;
-
-
 void no_more_memory() {
-  cerr << "error: Memory allocation failed." << endl;
-  exit(1);
+	cerr << "error: Memory allocation failed." << endl;
+	exit(1);
 }
 
-
 int main(int argc, char **argv) {
-	set_new_handler(no_more_memory);
+	std::set_new_handler(no_more_memory);
 
-  H5::Exception::dontPrint();
+	H5::Exception::dontPrint();
 
-  try {
-    XsqFile file(argv[1]);
-    file.load_metadata();
-    cout << "[xsqinfo v0.1] "; 
-    cout << file;
+	try {
+		Xsq::XsqFile file(argv[1]);
+		file.load_metadata();
+		std::cout << "[xsqinfo v0.1] "; 
+		std::cout << file;
 
-  } catch (const H5::Exception& e) {
-		cerr << e.getDetailMsg() << endl;
-		exit(-1);
+	} catch (const H5::Exception& e) {
+		std::cerr << e.getDetailMsg() << std::endl;
+		std::exit(-1);
 
-	} catch (const exception& e) {
-		cerr << e.what() << endl;
-		exit(-1);
+	} catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		std::exit(-1);
 	}
 
-  return 0;
+	return 0;
 }
