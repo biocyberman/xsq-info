@@ -6,7 +6,7 @@
 using namespace Xsq;
 
 unsigned int Tag::get_nb_reads() const {
-	H5::DataSet color_call_qv_ds = m_group.openDataSet("ColorCallQV");
+	const H5::DataSet& color_call_qv_ds = m_group.openDataSet("ColorCallQV");
 
 	hsize_t color_call_qv_ds_dims[2];
 	color_call_qv_ds.getSpace().getSimpleExtentDims(

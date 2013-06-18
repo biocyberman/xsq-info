@@ -34,17 +34,15 @@ auto Library::get_tiles() const -> std::vector<Tile>
  * Method wich return the nb of reads for each tag name
  * Joel Poudroux
  */
-std::map<std::string, unsigned int> Library::get_nb_reads() const {
+std::map<std::string, unsigned int> Library::get_nb_reads() const
+{
   std::map<std::string, unsigned int> sum_nb_reads;
-  std::vector<Tile> tiles = get_tiles();
-  std::map<std::string, unsigned int> one_tile;
 
   // sum each nb_reads of each tiles
-  for (Tile t : tiles) {
-    one_tile = t.get_nb_reads();
-
+  for (const Tile& t : get_tiles())
+  {
     // foreach tag name
-    for (std::pair<std::string, unsigned int> tag : one_tile)
+    for (const std::pair<std::string, unsigned int>& tag : t.get_nb_reads())
       sum_nb_reads[tag.first] += tag.second;
   }
   

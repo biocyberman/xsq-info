@@ -24,10 +24,9 @@ auto Tile::get_tags() const -> std::list<Tag>
  * Method wich return the nb of reads for each tag name
  */
 std::map<std::string, unsigned int> Tile::get_nb_reads() const {
-	std::list<Tag> tags = get_tags();
 	std::map<std::string, unsigned int> nb_reads;
 
-	for (Tag t : tags)
+	for (const Tag& t : get_tags())
 		nb_reads[t.get_name()] = t.get_nb_reads();
 
 	return nb_reads;

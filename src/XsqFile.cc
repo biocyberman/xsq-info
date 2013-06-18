@@ -35,12 +35,10 @@ std::ostream& operator<<(std::ostream& o, const XsqFile& file)
  */
 std::map<std::string, unsigned int> XsqFile::get_nb_reads() const {
 	std::map<std::string, unsigned int> sum_nb_reads;
-	std::vector<Library> lib = get_libraries();
 
-	for (Library l : lib) {
-		std::map<std::string, unsigned int> one_lib = l.get_nb_reads();
+	for (const Library& l: get_libraries()) {
 		// foreach tag name
-		for (std::pair<std::string, unsigned> t : one_lib)
+		for (const std::pair<std::string, unsigned>& t : l.get_nb_reads())
 			sum_nb_reads[t.first + '_' + l.get_complete_name()] = t.second;
 	}
 
