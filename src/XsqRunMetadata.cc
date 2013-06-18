@@ -52,7 +52,7 @@ namespace Xsq {
 		// load attributes
 		for (const auto &a : s_attrs_names) { // <name, type>
 			try {
-				H5::Attribute attr = group.openAttribute(a.first);
+				const H5::Attribute& attr = group.openAttribute(a.first);
 
 				if (a.second == XsqRunMetadata::INTEGER) {
 					std::uint8_t i;

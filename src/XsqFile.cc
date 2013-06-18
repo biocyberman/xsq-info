@@ -17,14 +17,12 @@ std::ostream& operator<<(std::ostream& o, const XsqFile& file)
 
 	o << "[Read size]\n";
 
-	std::map<std::string, unsigned> read_size = file.get_used_tags_length();
-	for (std::pair<std::string, unsigned> t : read_size)
+	for (const std::pair<std::string, unsigned>& t : file.get_used_tags_length())
 		o << t.first << ": " << t.second << '\n';
 
 	o << "\n[Number of reads]\n";
 
-	std::map<std::string, unsigned> nb_reads = file.get_nb_reads();
-	for (std::pair<std::string, unsigned> l : nb_reads)
+	for (const std::pair<std::string, unsigned>& l : file.get_nb_reads())
 		o << l.first << ": " << l.second << '\n';
 }
 

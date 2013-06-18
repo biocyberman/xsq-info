@@ -6,7 +6,6 @@
 // (See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT)
 
 #include "H5Cpp.h"
-#include <iomanip>
 #include <boost/filesystem.hpp>
 namespace fs = boost::filesystem;
 #include <vector>
