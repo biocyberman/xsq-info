@@ -14,13 +14,13 @@
 namespace Xsq {
 	
 	class Xsq_RunMetaData {
-		public:
+		private:
 
-			enum data_type {
+			enum Attr_t {
 				STRING, INTEGER
 			};
 
-			static const std::vector<std::pair<std::string, data_type>> s_attrs_names;
+			static const std::vector<std::pair<std::string, Attr_t>> s_attrs_names;
 			std::map<std::string, std::string> m_attrs_values;
 
 		public:

@@ -10,7 +10,7 @@
 
 
 namespace Xsq {
-	const std::vector<std::pair<std::string, Xsq_RunMetaData::data_type>> 
+	const std::vector<std::pair<std::string, Xsq_RunMetaData::Attr_t>> 
 		Xsq_RunMetaData::s_attrs_names = {
 			std::make_pair("AnalysisSoftware", STRING),
 			std::make_pair("InstrumentVendor", STRING),
@@ -32,7 +32,7 @@ namespace Xsq {
 
 	std::ostream& operator<<(std::ostream& o, const Xsq_RunMetaData& metadata) {
 		o << "[RunMetaData]\n\n";
-		for (const std::pair<std::string, Xsq_RunMetaData::data_type> &p: metadata.s_attrs_names)
+		for (const std::pair<std::string, Xsq_RunMetaData::Attr_t> &p: metadata.s_attrs_names)
 			o << std::setw(28) << p.first << ": " << metadata.m_attrs_values.find(p.first)->second << std::endl;
 	}
 
