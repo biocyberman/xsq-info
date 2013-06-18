@@ -5,13 +5,11 @@
 // Use, modification and distribution is subject to the MIT License (MIT)
 // (See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT)
 
-#include <string>
-#include <iostream>
 #include <H5Cpp.h>
+#include <iostream>
 #include <map>
 #include <vector>
-#include <utility>
-#include <stdexcept>
+#include <string>
 
 namespace Xsq {
 	

@@ -8,34 +8,34 @@
 #include "H5Cpp.h"
 #include <string>
 #include <vector>
-#include "Tile.hh"
 #include <map>
+#include "Tile.hh"
 
 namespace Xsq 
 {
 	class Library
 	{
-	private:
-		std::string m_complete_name;
-		std::string m_sample_name;
-		H5::Group m_group;
+		private:
+			std::string m_complete_name;
+			std::string m_sample_name;
+			H5::Group m_group;
 
-	public:
-		Library(const std::string& name, const H5::Group& group);
+		public:
+			Library(const std::string& name, const H5::Group& group);
 
-		auto get_complete_name() const -> const std::string&
-		{
-			return m_complete_name;
-		}
+			auto get_complete_name() const -> const std::string&
+			{
+				return m_complete_name;
+			}
 
-		auto get_sample_name() const -> const std::string&
-		{
-			return m_sample_name;
-		}
+			auto get_sample_name() const -> const std::string&
+			{
+				return m_sample_name;
+			}
 
-		auto get_tiles() const -> std::vector<Tile>;
+			auto get_tiles() const -> std::vector<Tile>;
 
-    std::map<std::string, unsigned int> get_nb_reads() const;
+			std::map<std::string, unsigned int> get_nb_reads() const;
 	};
 }
 #endif // LIBRARY_HH

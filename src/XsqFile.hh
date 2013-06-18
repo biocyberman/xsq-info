@@ -10,7 +10,6 @@
 #include <boost/filesystem.hpp>
 namespace fs = boost::filesystem;
 #include <vector>
-#include <list>
 #include <map>
 #include <string>
 #include "Library.hh"

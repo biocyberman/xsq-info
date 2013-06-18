@@ -2,22 +2,16 @@
 // Use, modification and distribution is subject to the MIT License (MIT)
 // (See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT)
 
-#include <iostream>
-#include <string>
-#include <string.h>
 #include <cstdint>
-#include <vector>
-#include <map>
 #include <utility>
 #include <iomanip>
-
+#include <stdexcept>
 #include "XsqRunMetadata.hh"
 
 
 namespace Xsq {
 	const std::vector<std::pair<std::string, Xsq_RunMetaData::data_type>> 
 		Xsq_RunMetaData::m_attrs = {
-
 			std::make_pair("AnalysisSoftware", STRING),
 			std::make_pair("InstrumentVendor", STRING),
 			std::make_pair("InstrumentModel", STRING),

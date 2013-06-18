@@ -3,7 +3,6 @@
 
 // (C) Copyright 2013 Florian Plaza Onate & Joel Poudroux
 // Use, modification and distribution is subject to the MIT License (MIT)
-// (See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT)
 
 #include <string>
 #include <boost/algorithm/string/predicate.hpp>
