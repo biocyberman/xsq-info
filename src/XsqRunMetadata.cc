@@ -11,7 +11,7 @@
 #include <utility>
 #include <iomanip>
 
-#include "xsq_runmetadata.h"
+#include "XsqRunMetadata.hh"
 
 
 namespace Xsq {

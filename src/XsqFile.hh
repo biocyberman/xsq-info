@@ -15,7 +15,7 @@ namespace fs = boost::filesystem;
 #include <string>
 #include "Library.hh"
 #include "StringPrefixComparator.hh"
-#include "xsq_runmetadata.h"
+#include "XsqRunMetadata.hh"
 
 
 namespace Xsq
