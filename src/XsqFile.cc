@@ -3,6 +3,7 @@
 // (See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT)
 
 #include "XsqFile.hh"
+#include <iomanip>
 
 namespace Xsq {
 
