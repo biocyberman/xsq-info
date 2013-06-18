@@ -1,5 +1,5 @@
-#ifndef XSQ_RUNMETADATA
-#define XSQ_RUNMETADATA
+#ifndef XSQ_RUNMETADATA_HH
+#define XSQ_RUNMETADATA_HH
 
 // (C) Copyright 2013 Florian Plaza Onate & Joel Poudroux
 // Use, modification and distribution is subject to the MIT License (MIT)
@@ -13,7 +13,7 @@
 
 namespace Xsq {
 	
-	class Xsq_RunMetaData {
+	class XsqRunMetadata {
 		private:
 
 			enum Attr_t {
@@ -24,14 +24,14 @@ namespace Xsq {
 			std::map<std::string, std::string> m_attrs_values;
 
 		public:
-			Xsq_RunMetaData() {}
-			Xsq_RunMetaData(H5::H5File&);
-			~Xsq_RunMetaData() {}
+			XsqRunMetadata() {}
+			XsqRunMetadata(H5::H5File&);
+			~XsqRunMetadata() {}
 
 			void load(H5::H5File&);
 			std::string get_attr(const std::string&) const;
 
-			friend std::ostream& operator<<(std::ostream&, const Xsq_RunMetaData&);
+			friend std::ostream& operator<<(std::ostream&, const XsqRunMetadata&);
 	};
 
 }

@@ -47,7 +47,7 @@ std::map<std::string, unsigned int> XsqFile::get_nb_reads() const {
 }
 
 /**
- * Method wich loads metadata in the Xsq_RunMetaData class
+ * Method wich loads metadata in the XsqRunMetadata class
  */
 void XsqFile::load_metadata() {
 	m_metadata.load(m_file);

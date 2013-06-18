@@ -10,8 +10,8 @@
 
 
 namespace Xsq {
-	const std::vector<std::pair<std::string, Xsq_RunMetaData::Attr_t>> 
-		Xsq_RunMetaData::s_attrs_names = {
+	const std::vector<std::pair<std::string, XsqRunMetadata::Attr_t>> 
+		XsqRunMetadata::s_attrs_names = {
 			std::make_pair("AnalysisSoftware", STRING),
 			std::make_pair("InstrumentVendor", STRING),
 			std::make_pair("InstrumentModel", STRING),
@@ -30,14 +30,14 @@ namespace Xsq {
 		};
 
 
-	std::ostream& operator<<(std::ostream& o, const Xsq_RunMetaData& metadata) {
+	std::ostream& operator<<(std::ostream& o, const XsqRunMetadata& metadata) {
 		o << "[RunMetaData]\n\n";
-		for (const std::pair<std::string, Xsq_RunMetaData::Attr_t> &p: metadata.s_attrs_names)
+		for (const std::pair<std::string, XsqRunMetadata::Attr_t> &p: metadata.s_attrs_names)
 			o << std::setw(28) << p.first << ": " << metadata.m_attrs_values.find(p.first)->second << std::endl;
 	}
 
 
-	Xsq_RunMetaData::Xsq_RunMetaData(H5::H5File &file) {
+	XsqRunMetadata::XsqRunMetadata(H5::H5File &file) {
 		load(file);
 	}
 
@@ -46,7 +46,7 @@ namespace Xsq {
 	 * It will load some metadata from the group of the file
 	 * \param[in] path
 	 */
-	void Xsq_RunMetaData::load(H5::H5File& file) {
+	void XsqRunMetadata::load(H5::H5File& file) {
 		H5::Group group = file.openGroup("RunMetadata");
 
 		// load attributes
@@ -54,12 +54,12 @@ namespace Xsq {
 			try {
 				H5::Attribute attr = group.openAttribute(a.first);
 
-				if (a.second == Xsq_RunMetaData::INTEGER) {
+				if (a.second == XsqRunMetadata::INTEGER) {
 					std::uint8_t i;
 					attr.read(attr.getDataType(), &i);
 					m_attrs_values[a.first] = std::to_string((int) i);
 
-				} else { // Xsq_RunMetaData::STRING
+				} else { // XsqRunMetadata::STRING
 					std::string s;
 					attr.read(attr.getDataType(), s);
 					m_attrs_values[a.first] = s == "" || s == " " ? "None" : s;
@@ -78,7 +78,7 @@ namespace Xsq {
 	 * \param[in] attr_name
 	 * \return Return the value associated to the attribute
 	 */
-	std::string Xsq_RunMetaData::get_attr(const std::string& attr_name) const {
+	std::string XsqRunMetadata::get_attr(const std::string& attr_name) const {
 		std::map<std::string, std::string>::const_iterator it =
 			m_attrs_values.find(attr_name);
 

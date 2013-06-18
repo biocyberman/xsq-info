@@ -26,7 +26,7 @@ namespace Xsq
 			fs::path m_path;
 			static const std::vector<std::string> s_reserved_names;
 
-			Xsq_RunMetaData m_metadata;
+			XsqRunMetadata m_metadata;
 
 		public:
 			XsqFile(const std::string& path)
