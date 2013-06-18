@@ -22,38 +22,38 @@ namespace Xsq
 {
 	class XsqFile
 	{
-	private:
-		H5::H5File m_file;
-		fs::path m_path;
-		static const std::vector<std::string> s_reserved_names;
+		private:
+			H5::H5File m_file;
+			fs::path m_path;
+			static const std::vector<std::string> s_reserved_names;
 
-    Xsq_RunMetaData m_metadata;
+			Xsq_RunMetaData m_metadata;
 
-	public:
-		XsqFile(const std::string& path)
-			: m_file(path, H5F_ACC_RDONLY), m_path(path){};
+		public:
+			XsqFile(const std::string& path)
+				: m_file(path, H5F_ACC_RDONLY), m_path(path){};
 
-		XsqFile()
-		{}
+			XsqFile()
+			{}
 
-		~XsqFile()
-		{
-			m_file.close();
-		};
+			~XsqFile()
+			{
+				m_file.close();
+			};
 
-		auto get_path() const-> fs::path
-		{
-			return m_path;
-		}
+			auto get_path() const-> fs::path
+			{
+				return m_path;
+			}
 
-		auto get_libraries() const -> std::vector<Library>;
-		auto get_libraries_by_prefix(const std::vector<std::string>&) const -> std::vector<Library>;
-		auto get_used_tags_names() const -> std::vector<std::string>;
-    std::map<std::string, unsigned> get_used_tags_length() const;
-    void load_metadata();
-    std::map<std::string, unsigned int> get_nb_reads() const;
+			auto get_libraries() const -> std::vector<Library>;
+			auto get_libraries_by_prefix(const std::vector<std::string>&) const -> std::vector<Library>;
+			auto get_used_tags_names() const -> std::vector<std::string>;
+			std::map<std::string, unsigned> get_used_tags_length() const;
+			void load_metadata();
+			std::map<std::string, unsigned int> get_nb_reads() const;
 
-    friend ostream & operator<<(ostream &, const XsqFile &);
+			friend std::ostream& operator<<(std::ostream&, const XsqFile&);
 	};
 }
 

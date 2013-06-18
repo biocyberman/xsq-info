@@ -6,8 +6,8 @@
 #include "XsqFile.hh"
 
 void no_more_memory() {
-	cerr << "error: Memory allocation failed." << endl;
-	exit(1);
+	std::cerr << "error: Memory allocation failed." << std::endl;
+	std::exit(1);
 }
 
 int main(int argc, char **argv) {

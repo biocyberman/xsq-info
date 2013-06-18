@@ -13,31 +13,28 @@
 #include <utility>
 #include <stdexcept>
 
-using namespace std;
-
 namespace Xsq {
+	
+	class Xsq_RunMetaData {
+		public:
 
-class Xsq_RunMetaData {
+			enum data_type {
+				STRING, INTEGER
+			};
 
-  public:
+			static const std::vector<std::pair<std::string, data_type>> m_attrs;
+			std::map<std::string, std::string> m_values;
 
-    enum data_type {
-      STRING, INTEGER
-    };
+		public:
+			Xsq_RunMetaData() {}
+			Xsq_RunMetaData(H5::H5File&);
+			~Xsq_RunMetaData() {}
 
-    static const vector<pair<string, data_type>> m_attrs;
-    map<string, string> m_values;
+			void load(H5::H5File&);
+			std::string get_attr(const std::string&) const;
 
-  public:
-    Xsq_RunMetaData() {}
-    Xsq_RunMetaData(H5::H5File &);
-    ~Xsq_RunMetaData() {}
-
-    void load(H5::H5File &);
-    string get_attr(const string &) const;
-
-    friend ostream & operator<<(ostream &, const Xsq_RunMetaData &);
-};
+			friend std::ostream& operator<<(std::ostream&, const Xsq_RunMetaData&);
+	};
 
 }
 
