@@ -20,8 +20,8 @@ namespace Xsq {
 				STRING, INTEGER
 			};
 
-			static const std::vector<std::pair<std::string, data_type>> m_attrs;
-			std::map<std::string, std::string> m_values;
+			static const std::vector<std::pair<std::string, data_type>> s_attrs_names;
+			std::map<std::string, std::string> m_attrs_values;
 
 		public:
 			Xsq_RunMetaData() {}
