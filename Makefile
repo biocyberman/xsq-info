@@ -34,6 +34,7 @@ SRC_DIR = src
 BUILD_DIR = build
 SRC = $(wildcard $(SRC_DIR)/*.cc)
 OBJECTS = $(patsubst $(SRC_DIR)/%.cc, $(BUILD_DIR)/%.o, $(SRC))
+BIN_DIR = /usr/local/bin
 
 .PHONY : clean
 
@@ -51,3 +52,9 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(EXEC) $(BUILD_DIR)
 
+install:
+	cp -f $(EXEC) $(BIN_DIR)
+	chmod 755 $(BIN_DIR)/$(EXEC)
+
+uninstall:
+	rm -f $(BIN_DIR)/$(EXEC)
