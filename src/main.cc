@@ -15,6 +15,13 @@ int main(int argc, char **argv) {
 
 	H5::Exception::dontPrint();
 
+	// Check command line parameters
+	if (argc != 2)
+	{
+		std::cerr << "Usage: " << argv[0] << " XSQ_FILE" << std::endl;
+		std::exit(-1);
+	}
+
 	try {
 		Xsq::XsqFile file(argv[1]);
 		file.load_metadata();

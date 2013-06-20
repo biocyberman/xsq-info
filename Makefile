@@ -22,11 +22,11 @@
 # THE SOFTWARE.
 #
 
-EXEC = xsqinfo
+EXEC = xsq-info
 
 CC = g++
 CFLAGS = --std=c++0x -Wextra -O3 -march=native
-BOOST_LIBS= -lboost_filesystem -lboost_system -lboost_program_options
+BOOST_LIBS= -lboost_filesystem -lboost_system
 HDF5_LIBS = -lhdf5_hl_cpp -lhdf5_cpp -lhdf5
 LDFLAGS = $(BOOST_LIBS) $(HDF5_LIBS)
 
@@ -36,7 +36,7 @@ SRC = $(wildcard $(SRC_DIR)/*.cc)
 OBJECTS = $(patsubst $(SRC_DIR)/%.cc, $(BUILD_DIR)/%.o, $(SRC))
 BIN_DIR = /usr/local/bin
 
-.PHONY : clean
+.PHONY : all clean install uninstall
 
 all: $(BUILD_DIR) $(EXEC) 
 
