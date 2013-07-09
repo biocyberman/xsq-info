@@ -12,7 +12,7 @@ namespace Xsq {
  */
 std::ostream& operator<<(std::ostream& o, const XsqFile& file)
 {
-	o << basename(file.m_path.c_str()) << "\n\n";
+	o << fs::basename(file.m_path) << "\n\n";
 	o << file.m_metadata << '\n';
 
 	o << "[Read size]\n";
