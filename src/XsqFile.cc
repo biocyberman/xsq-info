@@ -25,7 +25,7 @@ std::ostream& operator<<(std::ostream& o, const XsqFile& file)
 	for (const std::pair<std::string, unsigned>& l : file.get_nb_reads())
 		o << l.first << ": " << l.second << '\n';
 
-	return os;
+	return o;
 }
 
 /**
