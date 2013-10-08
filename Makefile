@@ -25,10 +25,10 @@
 EXEC = xsq-info
 
 CC = g++
-CFLAGS = --std=c++0x -Wextra -O3 -march=native
+CFLAGS = --std=c++0x -Wall -Wextra -O3 -march=native 
 BOOST_LIBS= -lboost_filesystem -lboost_system
 HDF5_LIBS = -lhdf5_hl_cpp -lhdf5_cpp -lhdf5
-LDFLAGS = $(BOOST_LIBS) $(HDF5_LIBS)
+LDFLAGS = $(BOOST_LIBS) $(HDF5_LIBS) 
 
 SRC_DIR = src
 BUILD_DIR = build

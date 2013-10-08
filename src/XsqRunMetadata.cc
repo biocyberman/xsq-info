@@ -34,6 +34,7 @@ namespace Xsq {
 		o << "[RunMetaData]\n\n";
 		for (const std::pair<std::string, XsqRunMetadata::Attr_t> &p: metadata.s_attrs_names)
 			o << std::setw(28) << p.first << ": " << metadata.m_attrs_values.find(p.first)->second << std::endl;
+		return o;
 	}
 
 
